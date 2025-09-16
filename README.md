@@ -1,69 +1,32 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Cómo levantar el proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Instalar  dependencias:
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. Iniciar el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+3. Abre tu navegador en [http://localhost:5173]
+
+
+Challenge React
+
+Implementar un buscador de países. Al introducir texto, se deberá buscar los países que coincidan con la búsqueda usando una API pública. Mostrar los resultados en formato de lista. Permitiendo marcar el puntaje del país usando un sistema de estrellas (1 a 5 estrellas). Los requisitos se detallarán más abajo.
+
+
+Requisitos:
+
+Se pueden usar librerías, el diseño no hace falta que sea idéntico pero sí un aproximado.
+La búsqueda es al tipear, no con un submit del form.
+El request debe ser un GET a https://restcountries.com/v3.1/name/<name> donde <name> es el string de la búsqueda.
+Todos los campos necesarios están en el payload de la API.
+Usar Typescript para el challenge.
+La selección del score debe guardarse en memoria. Si se realiza otra búsqueda el score no debe perderse. (Ej: buscas argentina, ponés score 5, después buscas España, y después buscas Argentina de nuevo, el 5 debe mantenerse). Sin embargo, al refrescar la página no hace falta persistir el estado. Por default el score empieza en 0 (sin estrellas) para todos los países.
+Mostrar estados de loading/error + empty state cuando no haya resultados.
+Ante dudas, hacer lo que te parezca correcto, si elegís cierta decisión dejá un comentario en el código del porqué de la decisión.
