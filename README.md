@@ -1,18 +1,17 @@
-```
 
 ## Cómo levantar el proyecto
 
 1. Instalar  dependencias:
-   ```bash
-   npm install
-   ```
+ ```bash
+ npm install
+ ```
 
 2. Iniciar el servidor de desarrollo:
-   ```bash
-   npm run dev
-   ```
+ ```bash
+ npm run dev
+ ```
 
-3. Abre tu navegador en [http://localhost:5173]
+3. Abrir navegador en [http://localhost:5173]
 
 
 Challenge React
